@@ -1,0 +1,12 @@
+server:
+  port: 8088
+
+dataSource:
+  url: jdbc:mysql://rm-uf6bbox2e82z6d12ho.mysql.rds.aliyuncs.com:3306/rdms?useUnicode=true&characterEncoding=utf8
+  username: root
+  password: MENGfw0430
+  driverClassName: com.mysql.jdbc.Driver
+app:
+  staticPathPattern: /static/**
+  staticPath: classpath:/static/
+  loginUrl : /static/page/login.html
