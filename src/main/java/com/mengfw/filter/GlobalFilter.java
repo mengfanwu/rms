@@ -47,6 +47,10 @@ public class GlobalFilter implements Filter {
     private void initWhiteUrls() {
         whiteUrlList.add("/static/page/login.html");
         whiteUrlList.add("/home/**");
+        whiteUrlList.add("/static/img/**");
+        whiteUrlList.add("/static/js/**");
+        whiteUrlList.add("/static/css/**");
+        whiteUrlList.add("/upload/**");
     }
 
     @Override

@@ -10,3 +10,13 @@ app:
   staticPathPattern: /static/**
   staticPath: classpath:/static/
   loginUrl : /static/page/login.html
+
+spring:
+  redis:
+#    host: r-2ze6331b49eed314.redis.rds.aliyuncs.com
+#    port: 6379
+#    username: mengfw
+#    password: MENGfw0430
+
+    host: 127.0.0.1
+    port: 6379

@@ -6,12 +6,50 @@
     <title>这是我的网页</title>
     <meta name="keywords" content="这是我的网页">
     <meta name="description" content="这是我的网页">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#submitBtn").click(function(){
+                var mobile = $("#username").val();
+                var password = $("#password").val();
+                   sendMsg(mobile,password);
+            });
+	    });
+	    function sendMsg(username,password){
+            <!--$.post("/login", { mobile: username, password: password },-->
+                <!--function(data){-->
+                   <!--alert("Data Loaded: " + data);-->
+                <!--}-->
+             <!--);-->
+
+             $.ajax({
+                url: "/home/login",
+                type: "post",
+                dataType: "json",
+                data:'{"mobile":"'+username+'","password":"'+password+'"}',
+                headers: {'Content-Type': 'application/json'},
+                success: function (res) {
+                     alert(res.model.empInfo);
+                    if(res.success == true && res.login == true){
+                        $.cookie('emp_id', res.model.empInfo.empId);
+                        $.cookie('token', res.model.empInfo.token);
+                    }else{
+                        alert(res.message);
+                    }
+                }
+            })
+	    }
+    </script>
 </head>
 
 <body bgcolor="#808080">
 
 <div style="position: absolute; width: 450px; height: 550px; z-index: 1; left: 400px; top: 60px; padding-left: 60px; padding-right: 60px; padding-top: 90px; padding-bottom: 60px; background-color: #FFFFFF" id="layer1">
     <p align="center"><b>这是我的登录页</b></p>
+    <input id="username" type="text" />
+    <input type="password" id="password">
+    <input type="button" value="提交" id="submitBtn"/>
 </div>
 
 </body>
