@@ -10,7 +10,6 @@ app:
   staticPathPattern: /static/**
   staticPath: classpath:/static/
   loginUrl : /static/page/login.html
-
 spring:
   redis:
 #    host: r-2ze6331b49eed314.redis.rds.aliyuncs.com
@@ -20,3 +19,6 @@ spring:
 
     host: 127.0.0.1
     port: 6379
+lucene:
+  filePath: D:\lucene\file
+  indexPath: D:\lucene\index
