@@ -10,7 +10,9 @@ import com.mengfw.rms.model.Emp;
 import com.mengfw.rms.service.EmpService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -27,19 +29,20 @@ import java.util.List;
 /**
  * Created by MFW on 2017/5/27.
  */
-@WebFilter(filterName="globalFilter",urlPatterns="/*")
+@Component
 public class GlobalFilter implements Filter {
     private static  final Logger LOGGER = LoggerFactory.getLogger(GlobalFilter.class);
     private String loginUrl = "/static/page/login.html";
     private List<String> whiteUrlList = Lists.newArrayList();
     private AntPathMatcher pathMatcher = new AntPathMatcher();
+    @Autowired
     private EmpService empService;
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         initWhiteUrls();
-        ServletContext servletContext = filterConfig.getServletContext();
-        ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
-        empService = (EmpService) ctx.getBean("empServiceImpl");
+//        ServletContext servletContext = filterConfig.getServletContext();
+//        ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+//        empService = (EmpService) ctx.getBean("empServiceImpl");
     }
 
     private void initWhiteUrls() {

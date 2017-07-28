@@ -1,6 +1,7 @@
 package com.mengfw.rms;
 
 import com.mengfw.rms.filter.GlobalFilter;
+import com.mengfw.rms.filter.XssFilter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,12 +14,6 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @MapperScan(basePackages = "com.mengfw.rms.mapper")
 public class Application {
-    @Bean
-    public FilterRegistrationBean globalFilterRegistration() {
-        FilterRegistrationBean registration = new FilterRegistrationBean(new GlobalFilter());
-        registration.addUrlPatterns("/*");
-        return registration;
-    }
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
