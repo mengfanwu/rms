@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 //@Configuration
 public class SiteExceptionFilterAspect {
     private static  final Logger LOGGER = LoggerFactory.getLogger(SiteExceptionFilterAspect.class);
-    @Pointcut("execution(* com.mengfw.controller..*.*(..))")
+    @Pointcut("execution(* mengfw.controller..*.*(..))")
     public void executeService(){
 
     }

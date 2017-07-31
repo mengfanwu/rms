@@ -20,7 +20,7 @@ import java.util.List;
 //@Configuration
 public class RestArgumentValidationAspect {
     private static  final Logger LOGGER = LoggerFactory.getLogger(RestArgumentValidationAspect.class);
-    @Pointcut("execution(* com.mengfw.controller..*.*(..))")
+    @Pointcut("execution(* mengfw.controller..*.*(..))")
     public void executeService(){
 
     }
